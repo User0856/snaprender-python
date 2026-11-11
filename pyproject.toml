@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling<1.22"]
+build-backend = "hatchling.build"
+
+[project]
+name = "snaprender"
+version = "0.7.5"
+description = "Official Python SDK for SnapRender Screenshot API"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+dependencies = ["httpx>=0.24"]
+keywords = ["screenshot", "api", "snaprender", "capture", "webpage"]
+
+[project.urls]
+Homepage = "https://snap-render.com"
+Documentation = "https://snap-render.com/docs"
+Repository = "https://github.com/User0856/snaprender-integrations"
+Issues = "https://github.com/User0856/snaprender-integrations/issues"
