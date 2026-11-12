@@ -56,6 +56,23 @@ image = snap.capture(markdown="# Hello World\nSome **bold** text.")
 > image = snap.capture("https://example.com", cache=True)
 > ```
 
+## No API key yet? (AI agents)
+
+An AI coding agent with no key can start in one call: `POST https://app.snap-render.com/v1/agent-trial` returns an `sk_trial_` key at once, with no signup.
+
+```python
+import requests
+from snaprender import SnapRender
+
+trial = requests.post(
+    "https://app.snap-render.com/v1/agent-trial", json={"agent": "my-agent"}
+).json()  # {"api_key", "claim_url", "limits", "expires_at", ...}
+
+snap = SnapRender(api_key=trial["api_key"])
+```
+
+Pass the `claim_url` on to the developer. A trial key gets 100 captures over 7 days (30 a day), a small watermark in one corner and a slower lane. To lift the limits, the developer opens the `claim_url` from the response and claims the key with a free account (200 captures a month, no watermark). The agent's key keeps working after the claim. Details: https://snap-render.com/docs/agent-trial
+
 ## Context Manager
 
 ```python
